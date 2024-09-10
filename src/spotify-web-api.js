@@ -21,6 +21,10 @@ SpotifyWebApi.prototype = {
     return this._credentials;
   },
 
+  setDefaultHeaders: function(defaultHeaders) {
+    WebApiRequest.setDefaultHeaders(defaultHeaders);
+  },
+
   resetCredentials: function() {
     this._credentials = null;
   },
@@ -593,7 +597,7 @@ SpotifyWebApi.prototype = {
       .withBodyParameters(
         {
           tracks: tracks
-        }, 
+        },
         options
       )
       .build()
@@ -971,7 +975,7 @@ SpotifyWebApi.prototype = {
   },
 
 
-  /** 
+  /**
    * Get the Current User's Available Devices
    * @param {requestCallback} [callback] Optional callback method to be called instead of the promise.
    * @returns {Promise|undefined} A promise that if successful, resolves into an array of device objects,
@@ -1016,7 +1020,7 @@ SpotifyWebApi.prototype = {
 
   /**
    * Transfer a User's Playback
-   * @param {string[]} [deviceIds] An _array_ containing a device ID on which playback should be started/transferred. 
+   * @param {string[]} [deviceIds] An _array_ containing a device ID on which playback should be started/transferred.
    * (NOTE: The API is currently only supporting a single device ID.)
    * @param {Object} [options] Options, the only one being 'play'.
    * @param {requestCallback} [callback] Optional callback method to be called instead of the promise.
@@ -1175,7 +1179,7 @@ SpotifyWebApi.prototype = {
 
   /**
    * Set Shuffle Mode On The Current User's Playback
-   * @param {boolean} [state] State 
+   * @param {boolean} [state] State
    * @param {Object} [options] Options, being device_id. If left empty will target the user's currently active device.
    * @param {requestCallback} [callback] Optional callback method to be called instead of the promise.
    * @example setShuffle({state: 'false'}).then(...)
